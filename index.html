@@ -3,8 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="foreachloops.js"></script>
+    <title>Learn Events</title>
+    <style>
+      div {
+        height: 100px;
+        width: 100px;
+        background-color: dodgerblue;
+        color: white;
+        font-weight: 600;
+        border: 3px solid black;
+        border-radius: 6px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!--The change in the state of an aboject is known as events
+        example - mouse events(single or double click)
+    -->
+    <!--This is all inline event handling which is not that good of a way-->
+    <button
+      onclick="
+        console.log('Button was clicked!');
+        alert('Hello!');
+      "
+    >
+      Click me
+    </button>
+
+    <!--For double click-->
+    <button onclick="console.log('Button was clicked!')">
+      Click me 2 times
+    </button>
+    <br />
+    <br />
+
+    <!--Creating a Div-->
+    <div onmouseover="console.log('You are inside Div!')">This is a box</div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
