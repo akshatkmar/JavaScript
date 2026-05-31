@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Function</title>
+</head>
+<body>
+    <script>
+        let x = Number(prompt("Enter first value"));
+        let y = Number(prompt("Enter second value"));
+        function calc(){
+
+            function add(a,b){
+                sum = a + b;
+                document.write("Sum is = " + sum + "<br>")
+            }
+            add(x,y);
+
+            function minus(a,b){
+                diff = a - b;
+                document.write("Difference is = "+ diff + "<br>");
+            }
+            minus(x,y);
+
+            function multiply(a,b){
+                mul = a*b;
+                document.write("Multiplication is = "+ mul + "<br>");
+            }
+            multiply(x,y);
+
+            function divide(a,b){
+                div = a/b;
+                document.write("Division is = "+ div + "<br>");
+            }
+            divide(x,y);
+
+        }
+        calc();
+    </script>
+</body>
+</html>
