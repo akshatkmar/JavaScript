@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <script>
+        //push and pop
+        let fruits = ["Mango", "Apple", "Papaya"];
+        fruits.push("Berries");
+        console.log(fruits);
+
+        fruits.pop();
+        console.log(fruits);
+
+        // to convert it into a string
+        console.log(fruits.toString());
+
+        //unshift - adds in starting 
+        fruits.unshift("Watermelon");
+        console.log(fruits);
+
+        //shift - delets from starting 
+        fruits.shift();
+        console.log(fruits);
+
+        // slice and splice 
+        let heroes = ["Hulk", "Captain America", "Spiderman", "Ironman"];
+        console.log(heroes.slice(2,4));
+
+        let name = ["Akshat", "Arsh", "Akarsh", "Ashwani"];
+        console.log(name.splice(1,1,"Anokhi"));
+        console.log(name);
+
+        // concatinate two strings
+        let veggies = ["Potato", "Tomato", "Chillies"];
+        let add = fruits.concat(veggies);
+        console.log(add);
+    </script>
+</body>
+</html>
