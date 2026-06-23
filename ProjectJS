@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Expense Tracker</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #202c39;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 450px;
+        background-color: #283845;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #f2d492;
+      }
+
+      h2 {
+        margin-top: 20px;
+        color: #f2d492;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #f29559;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #b8b08d;
+        color: #eccfc3;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: #f29559;
+      }
+
+      ul {
+        list-style: none;
+        margin-top: 15px;
+      }
+
+      li {
+        background-color: #f8f9fa;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-left: 5px solid #f29559;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .delete-btn {
+        width: auto;
+        padding: 6px 12px;
+        background-color: #ff4d4d;
+        border-radius: 5px;
+      }
+
+      .delete-btn:hover {
+        background-color: #e63939;
+      }
+
+      #total {
+        color: #28a745;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Expense Tracker</h1>
+
+      <input type="text" id="expenseName" placeholder="Expense Name" />
+
+      <input type="number" id="expenseAmount" placeholder="Amount" />
+
+      <button onclick="addExpense()">Add Expense</button>
+
+      <h2>Expenses</h2>
+
+      <ul id="expenseList"></ul>
+
+      <h2>Total: ₹<span id="total">0</span></h2>
+    </div>
+
+    <script>
+      let totalExpense = 0;
+
+      function addExpense() {
+        let name = document.getElementById("expenseName").value;
+        let amount = document.getElementById("expenseAmount").value;
+
+        if (name === "" || amount === "") {
+          alert("Please enter all fields");
+          return;
+        }
+
+        amount = Number(amount);
+
+        let li = document.createElement("li");
+
+        li.innerHTML = `
+        ${name} - ₹${amount}
+        <button class="delete-btn">Delete</button>
+    `;
+
+        document.getElementById("expenseList").appendChild(li);
+
+        totalExpense += amount;
+        document.getElementById("total").innerText = totalExpense;
+
+        li.querySelector("button").addEventListener("click", function () {
+          totalExpense -= amount;
+          document.getElementById("total").innerText = totalExpense;
+
+          li.remove();
+        });
+
+        document.getElementById("expenseName").value = "";
+        document.getElementById("expenseAmount").value = "";
+      }
+    </script>
+  </body>
+</html>
